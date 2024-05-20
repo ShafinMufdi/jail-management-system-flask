@@ -1,0 +1,36 @@
+.section-home{
+  height: calc(100% - 68.1333px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.home-main{
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  width: 90%;
+  border-radius: 5px;
+  overflow: hidden;
+  background-color: white;
+  box-shadow: 0 7px 10px rgb(0, 0, 0);
+  padding: .5rem;
+}
+
+.home-img{
+  width: 100%;
+  height: 100%;
+  border-right: none;
+}
+
+.home-para{
+  font-size: 1.9rem;
+  padding: 1rem;
+  border-left: none;
+}
+
+.home-para::first-letter{
+  font-size: 3rem;
+  font-style: italic;
+}
+
+/* End */

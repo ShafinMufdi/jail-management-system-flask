@@ -1,0 +1,22 @@
+{% extends 'base.html' %} 
+{%block title %} Jail Management System {%endblock%} 
+{%block navImg%} <img class="nav-img" src="/static/img/navlogo.png" alt="Prison Logo"> {%endblock%}
+{%block navTitle%} Jail Management {%endblock%}
+{%block css%}
+  {{url_for('static', filename='style.css')}}
+{%endblock%}
+{%block login%}
+  {{url_for('static', filename='login.css')}}
+{%endblock%}
+{%block action%} /login {%endblock%}
+{%block nav%}
+<li><a class="nav-a" href="{{url_for('home')}}">Home</a></li>
+<li><a class="nav-a" href="{{url_for('admin')}}">Admin</a></li>
+{%endblock%}
+{%block content%}
+<section class="section-login">
+  {% include 'authentication.html' %}
+</section>
+{%endblock%}
+
+<!-- End-->

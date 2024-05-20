@@ -1,0 +1,189 @@
+.nav-ul {
+  width: 50%;
+  justify-content: right;
+  gap: 1.5rem;
+  align-items: center;
+}
+.search-form {
+  width: 50%;
+  position: relative;
+}
+
+.search-input {
+  width: 100%;
+  border-radius: 100px;
+  padding: 0.5rem 3.6rem 0.5rem 0.5rem;
+  font-size: 1.4rem;
+}
+
+.search-btn {
+  padding: .35rem;
+  font-size: 1.2rem;
+  border-radius: 50%;
+  position: absolute;
+  top: .2rem;
+  right: .5rem;
+}
+
+.search-btn:hover{
+  cursor: pointer;
+}
+
+.section-show {
+  height: calc(100% - 68.1333px);
+  display: grid;
+  grid-template-columns: 1.5fr .5fr;
+}
+
+.option{
+  background-color: rgba(255, 228, 196, 0.726);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0rem 1rem;
+  flex-direction: column;
+  gap: 1rem;
+  overflow: auto;
+}
+
+.staff-main{
+  display: grid;
+  grid-template-columns: repeat(5,1fr);
+}
+
+.prisoner-main{
+  display: grid;
+  grid-template-columns: repeat(8,1fr);
+}
+
+.deputy-main{
+  display: grid;
+  grid-template-columns: repeat(7,1fr);
+}
+
+.deputy-nothing{
+  display: grid;
+  grid-template-columns: repeat(6,1fr);
+}
+
+
+.staff-title{
+  font-size: 1.6rem;
+  padding: 1rem;
+  border-bottom: none;
+  background-color: white;
+}
+
+.staff-details{
+  font-size: 1.5rem;
+  padding: 1rem;
+  background-color: aliceblue;
+}
+
+.staff-assign{
+  grid-column: 1 / span 6;
+  text-align: center;
+  font-weight: bold;
+  font-size: 2rem;
+}
+
+.first-four {
+  border-right: none;
+  border-bottom: none;
+}
+
+.last-four{
+  border-bottom: none;
+}
+
+.staff-btn{
+  width: 70%;
+  justify-self: center;
+  padding: .5rem;
+  background-color: white;
+  font-size: 1.6rem;
+  transition: all .3s;
+}
+
+.staff-btn:hover{
+  cursor: pointer;
+  background-color: black;
+  color: white;
+  transform: translateX(-7px);
+}
+
+.staff-btn:active{
+  transform: translateX(0px);
+}
+
+.account-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0rem 1rem;
+}
+
+.account-main {
+  width: 40rem;
+  padding: 1rem;
+  background-color: rgb(207, 207, 207);
+  font-size: 1.3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  box-shadow: 0 7px 20px rgb(0, 0, 0);
+  border: 3px solid white;
+}
+
+.account-failed {
+  color: red;
+  text-align: center;
+}
+
+.account-input {
+  padding: 0.5rem;
+  font-size: 1.6rem;
+}
+
+.account-btn {
+  padding: 0.5rem;
+  border: none;
+  font-size: 1.6rem;
+  width: 10rem;
+  border-radius: 5px;
+  margin: 0 auto;
+  transition: all 0.3s;
+  background-color: white;
+}
+
+.account-btn:hover {
+  cursor: pointer;
+  background-color: black;
+  color: white;
+}
+
+.three-input {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.two-btn{
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+  width: 8rem;
+  margin: 0 auto;
+}
+
+.delete-btn{
+  background-color: red;
+  color: white;
+}
+
+.delete-btn:hover{
+  background-color: rgb(224, 0, 0);
+}
+
+/* End */

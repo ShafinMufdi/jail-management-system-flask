@@ -1,0 +1,125 @@
+<form class="search-form" action="{%block path%}  {%endblock%}" method="POST">
+  {% if info == "prisoner" %}
+  <input
+    class="search-input"
+    type="text"
+    name="cell"
+    placeholder="Search By Cell..."
+  />
+  {% else %}
+  <input
+    class="search-input"
+    type="text"
+    name="email"
+    placeholder="Search By Email..."
+  />
+  {% endif %}
+  <input name="btn" class="search-btn" type="submit" value="🍳" />
+</form>
+{% if info == "prisoner" %}
+<div class="prisoner-main">
+  {% elif info == "deputy" %}
+  <div class="{% if user != 'Nothing' %}deputy-main{% else %}deputy-nothing{% endif %}">
+  {% else %}
+  <div class="staff-main">
+    {% endif %} {% if info == "prisoner" %}
+    <h1 class="staff-title">Id</h1>
+    <h1 class="staff-title">Name</h1>
+    <h1 class="staff-title">Age</h1>
+    <h1 class="staff-title">Birth</h1>
+    <h1 class="staff-title">Record</h1>
+    <h1 class="staff-title">Cell</h1>
+    <h1 class="staff-title">Year</h1>
+    <h1></h1>
+    {% elif info == "deputy" %}
+    <h1 class="staff-title">Name</h1>
+    <h1 class="staff-title">Email</h1>
+    <h1 class="staff-title">Work Type</h1>
+    <h1 class="staff-title">Shift</h1>
+    <h1 class="staff-title">Duty Duration</h1>
+    <h1 class="staff-title">Role</h1>
+    <h1></h1>
+    {% else %}
+    <h1 class="staff-title">Id</h1>
+    <h1 class="staff-title">Name</h1>
+    <h1 class="staff-title">Role</h1>
+    <h1 class="staff-title">Email</h1>
+    <h1></h1>
+    {% endif %}
+    {% if info == "prisoner" %} {% for user in user %}
+    
+    <p class="staff-details row-{{ loop.index }}">{{ user[0] }}</p>
+    <p class="staff-details row-{{ loop.index }}">{{ user[1] }}</p>
+    <p class="staff-details row-{{ loop.index }}">{{ user[2] }}</p>
+    <p class="staff-details row-{{ loop.index }}">{{ user[3] }}</p>
+    <p class="staff-details row-{{ loop.index }}">{{ user[4] }}</p>
+    <p class="staff-details row-{{ loop.index }}">{{ user[5] }}</p>
+    <p class="staff-details row-{{ loop.index }}">{{ user[6] }}</p>
+    <form method="post" action="/prisonerInfo" class="two-btn">
+      <button
+        type="button"
+        onclick="editPrisoner('{{ user[0] }}', '{{ user[1] }}', '{{ user[2] }}', '{{ user[3] }}','{{ user[4] }}','{{ user[5] }}','{{ user[6] }}', '{{ loop.index }}')"
+        class="staff-btn"
+      >
+        <ion-icon name="create-outline"></ion-icon>
+      </button>
+      <button class="staff-btn delete-btn">
+        <input type="hidden" name="cell" value="{{ user[5] }}" />
+        <ion-icon name="trash-outline"
+          ><input class="account-btn" name="btn" value="Delete" type="submit"
+        /></ion-icon>
+      </button>
+
+    </form>
+
+    {% endfor %} 
+
+    {% elif info == "deputy" %} 
+    {% if user != "Nothing" %} 
+    {% for user in user %}
+    
+    <p class="staff-details row-{{ loop.index }}">{{ user[0] }}</p>
+    <p class="staff-details row-{{ loop.index }}">{{ user[1] }}</p>
+    <p class="staff-details row-{{ loop.index }}">{{ user[2] }}</p>
+    <p class="staff-details row-{{ loop.index }}">{{ user[3] }}</p>
+    <p class="staff-details row-{{ loop.index }}">{{ user[4] }}</p>
+    <p class="staff-details row-{{ loop.index }}">{{ user[5] }}</p>
+    <form method="post" action="/deputy" class="two-btn">
+      <button
+        type="button"
+        onclick="editDeputy('{{ user[1] }}', '{{ loop.index }}')"
+        class="staff-btn"
+      >
+        <ion-icon name="create-outline"></ion-icon>
+      </button>
+
+    </form>
+
+    {% endfor %}
+    {% else %}
+    <p class="staff-details staff-assign">Nothing To Assign!</p>
+    {% endif %}
+    {% else %} {% for user in user %}
+    <p class="staff-details row-{{ loop.index }}">{{ user[0] }}</p>
+    <p class="staff-details row-{{ loop.index }}">{{ user[1] }}</p>
+    <p class="staff-details row-{{ loop.index }}">{{ user[2] }}</p>
+    <p class="staff-details row-{{ loop.index }}">{{ user[3] }}</p>
+    <form  method="post" action="/staffDetails" class="two-btn">
+      <button type="button"
+      onclick="editUser('{{ user[0] }}', '{{ user[1] }}', '{{ user[2] }}', '{{ user[3] }}', '{{ loop.index }}')"
+      class="staff-btn"
+    >
+    <ion-icon name="create-outline"></ion-icon>
+    </button>
+    <button class="staff-btn delete-btn">
+      <input type="hidden" name="email" value="{{ user[3] }}" />
+      <ion-icon name="trash-outline"
+        ><input class="account-btn" name="btn" value="Delete" type="submit"
+      /></ion-icon>
+    </button>
+    </form>
+    {% endfor %} {% endif %}
+  </div>
+</div>
+
+<!-- End-->
